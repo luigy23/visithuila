@@ -2,7 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { Lato } from 'next/font/google'
 import MenuNav from './Componentes/MenuNav'
-
+import { UserProvider } from './Context/userContext'
 
 const lato  = Lato(
   {subsets: ['latin'], weight: ['100', '300', '400', '700', '900'],}
@@ -15,10 +15,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <UserProvider>
+
     <html lang="en">
       <body className={lato.className}>
-        <MenuNav/>
+        <MenuNav />
         {children}</body>
     </html>
+    </UserProvider>
   )
 }

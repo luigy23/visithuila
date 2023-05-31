@@ -1,9 +1,18 @@
+"use client"
 import MenuNav from "./Componentes/MenuNav"
 import estilo from "./Styles/home.module.css"
 import LugarItem from "./Componentes/LugarItem"
+import { sitiosTop } from "./Services/sitios"
+import { useEffect, useState, } from "react"
 
 //importamos el estilo del modulo
 export default function Home() {
+
+  const [sitios, setSitios] = useState([])
+  useEffect(() => {
+    sitiosTop().then(res => setSitios(res)).catch(err => console.log(err))
+  }, [])
+
   return (
     <main className=" flex flex-col w-full items-center">
 
@@ -18,10 +27,9 @@ export default function Home() {
     </section>
     <section className={estilo.divpopulares +" contenedor"}>
       <h1 className="text-lg">Sitios Populares</h1>
-      <LugarItem nombre="Desierto Tatacoa"/>
-      <LugarItem nombre="San Agustin"/>
-      <LugarItem nombre="Cascada Isnos"/>
-      <LugarItem nombre="Mano del gigante"/>
+      {
+        sitios.map((item, index) => <LugarItem key={index} item={item} id={item[0]} sitio={item} />)
+      }
     </section>
     </main>
   )
