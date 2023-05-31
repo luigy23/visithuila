@@ -33,7 +33,7 @@ const MenuNav = () => {
       <div className={estilo.navegacion}>
         <ul className="flex flex-row justify-center items-center gap-2">  
             <li className="text-white hover:text-amarilloH-500"><Link href="/Lugares">Explorar</Link></li>
-
+            <li className="text-white hover:text-amarilloH-500"><Link href="/Sitios">Todos los Sitios</Link></li>
             {
               sesionIniciada ? (
                 <li className="text-white hover:text-amarilloH-500"><Link href="/Perfil">Ver tus calificaciones</Link></li>
@@ -41,6 +41,7 @@ const MenuNav = () => {
                 <li className={estilo.botonLogin}><Link href="/Login">Iniciar Sesion</Link></li>
               )
             }
+            
    
         </ul>
       </div>

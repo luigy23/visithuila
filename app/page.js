@@ -4,6 +4,7 @@ import estilo from "./Styles/home.module.css"
 import LugarItem from "./Componentes/LugarItem"
 import { sitiosTop } from "./Services/sitios"
 import { useEffect, useState, } from "react"
+import Link from "next/link"
 
 //importamos el estilo del modulo
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
       <div className="md:max-w-lg text-white  flex flex-col gap-3 md:items-start items-center">
       <h1 className="md:text-5xl text-3xl">Conoce los mejores lugares del Huila</h1>
       <p>Descubre a donde ir según tus gustos.</p>
-      <button className={estilo.botonAccion}>Encuentra tu destino ideal</button>
+      <Link href="/Lugares"><button className={estilo.botonAccion}>Encuentra tu destino ideal</button></Link>
       </div>
       </div>
     </section>
